@@ -21,7 +21,7 @@ class BaseballGame {
             
             let input = readLine()! // readLine으로 넘어온건 String으로 받아온다
             if let inputArray = input.map({ Int(String($0)) }).compactMap({ $0 }) as? [Int], inputArray.count == 3 {
-                if Set(inputArray).count != 3 || inputArray.contains(0) {
+                if Set(inputArray).count != 3 || inputArray[0] == 0 {
                     print("올바르지 않은 입력값입니다")
                     continue
                 }
@@ -70,8 +70,8 @@ class BaseballGame {
         // TODO: 랜덤 숫자 3개 배열 반환해야함
         var answer = [Int]()
         answer.append(Int.random(in: 1...9))
-        answer.append(Int.random(in: 1...9))
-        answer.append(Int.random(in: 1...9)) // 배열이 숫자 3개니까 한개씩 랜덤한수 추가?
+        answer.append(Int.random(in: 0...9))
+        answer.append(Int.random(in: 0...9)) // 배열이 숫자 3개니까 한개씩 랜덤한수 추가?
         if Set(answer).count == 3 {   // set을 왜썼을까? 3이어야 숫자 3개가 랜덤한 수로 지정되었다는 뜻 answer: 순서가 없다, 중복을 허용하지 않는다(중복된 수 는제거 )
             return answer
         } else {
