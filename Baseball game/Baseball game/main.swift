@@ -21,6 +21,10 @@ class BaseballGame {
             
             let input = readLine()! // readLine으로 넘어온건 String으로 받아온다
             if let inputArray = input.map({ Int(String($0)) }).compactMap({ $0 }) as? [Int], inputArray.count == 3 {
+                if Set(inputArray).count != 3 || inputArray.contains(0) {
+                    print("올바르지 않은 입력값입니다")
+                    continue
+                }
                 
                 if self.checkStrikeBall(answer: answer, input: input) { //본인 것을 호출할때 에는 인스턴스 이름 없이 바로 호출할수 있다. 굳이 명시하려면 self를 붙인다
                     break
